@@ -15,9 +15,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-//    public static String Login(String gmail, String password) {
-//        getUserRepository()
-//    }
 
     public List<User> getUsers() {
         return userRepository.findAll();
@@ -40,7 +37,14 @@ public class UserService {
         // TODO Auto-generated method stub
         userRepository.deleteById(id);
     }
-
+    public String check(String email, String password) {
+        // TODO Auto-generated method stub
+        User user = userRepository.getUserByEmailAndPassword(email, password);
+        if (user == null) {
+            return "User Not Found";
+        } else {
+            return "SUCCESS";
+        }
 
 
 //    public List<LaundaryDetails> getLaundaryDetailsByUserId(Integer userId) {
@@ -48,4 +52,5 @@ public class UserService {
 //        return userRepository.findLaundaryDetailsByUserId(userId);
 //    }
 
-}
+    }
+    }

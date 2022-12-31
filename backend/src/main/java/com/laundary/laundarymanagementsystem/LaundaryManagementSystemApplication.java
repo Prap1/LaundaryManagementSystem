@@ -8,7 +8,7 @@ public class LaundaryManagementSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LaundaryManagementSystemApplication.class, args);
-        System.out.println("Welcome to Centurion University!");
+        System.out.println("Welcome to Laundary Management System!");
     }
 
 }

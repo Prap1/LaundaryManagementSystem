@@ -1,7 +1,9 @@
 package com.laundary.laundarymanagementsystem.controller;
 
 import com.laundary.laundarymanagementsystem.entities.User;
+import com.laundary.laundarymanagementsystem.repository.UserRepository;
 import com.laundary.laundarymanagementsystem.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+@Autowired
     private UserService userService;
+@Autowired
+private UserRepository userRepository;
 
     public UserController(UserService userService){
     this.userService = userService;
@@ -39,15 +43,25 @@ public class UserController {
         userService.delete(userId);
         return "SUCCESS";
     }
-//    @PostMapping("user/login")
-//    public String User(@RequestParam(value = "gmail")String gmail,
-//                       @RequestParam(value = "Password")String password){
-//        return UserService.Login(gmail,password);
-//    }
+    @PostMapping("/login")
+    public User loginAuth(@RequestParam String email,
+                           @RequestParam String password)
+    {
+        String s = userService.check(email,password);
+        if(s.equals("SUCCESS"))
+        {
+            return userRepository.getUserByEmailAndPassword(email, password);
+        } else
+        {
+            return new User();
+        }
+    }
+
+}
 //    @GetMapping("/getByName/{name}")
 //    public List<User> getUserByName(@PathVariable (value = "fullName") String fullName)
 //    {
 //        return userService.getUserByName(fullName);
 //    }
 
-}
+
