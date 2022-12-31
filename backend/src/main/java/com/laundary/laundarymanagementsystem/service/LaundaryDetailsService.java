@@ -23,27 +23,22 @@ public class LaundaryDetailsService {
 
 
     public LaundaryDetails getLaundaryDetailsById(Integer id) {
-        // TODO Auto-generated method stub
+
         return laundaryDetailsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("there's no such server"));
     }
 
 
     public LaundaryDetails add(LaundaryDetails laundaryDetails) {
-        // TODO Auto-generated method stub
+
         return laundaryDetailsRepository.save(laundaryDetails);
     }
 
 
     public void delete(Integer id) {
-        // TODO Auto-generated method stub
+
         laundaryDetailsRepository.deleteById(id);
     }
 
-
-//    public List<LaundaryDetails> getLaundaryDetailsByUserId(Integer userId) {
-//        // TODO Auto-generated method stub
-//        return laundaryDetailsRepository.findLaundaryDetailsByUserId(userId);
-//    }
 
     public List<LaundaryDetails> getLaundaryDetailsByUserClothStatus(int userId, int clothStatus)
     {
@@ -54,7 +49,6 @@ public class LaundaryDetailsService {
     {
         return laundaryDetailsRepository.getLaundaryDetailsByClothStatus(clothStatus);
     }
-
 
     public LaundaryDetails changeStatusToFinish(int requestId) {
         LaundaryDetails laundaryDetails = getLaundaryDetailsById(requestId);

@@ -22,23 +22,23 @@ public class UserService {
 
 
     public User getUserById(Integer id) {
-        // TODO Auto-generated method stub
+
         return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("there's no such server"));
     }
 
 
     public User add(User user) {
-        // TODO Auto-generated method stub
+
         return userRepository.save(user);
     }
 
 
     public void delete(Integer id) {
-        // TODO Auto-generated method stub
+
         userRepository.deleteById(id);
     }
     public String check(String email, String password) {
-        // TODO Auto-generated method stub
+
         User user = userRepository.getUserByEmailAndPassword(email, password);
         if (user == null) {
             return "User Not Found";
@@ -47,10 +47,6 @@ public class UserService {
         }
 
 
-//    public List<LaundaryDetails> getLaundaryDetailsByUserId(Integer userId) {
-//        // TODO Auto-generated method stub
-//        return userRepository.findLaundaryDetailsByUserId(userId);
-//    }
 
     }
     }

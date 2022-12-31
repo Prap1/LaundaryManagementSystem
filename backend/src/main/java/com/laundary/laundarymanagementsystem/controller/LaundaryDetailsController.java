@@ -17,14 +17,12 @@ public class LaundaryDetailsController {
     }
 
     @GetMapping("/")
-    public List<LaundaryDetails> getAllLaundaryDetails()
-    {
+    public List<LaundaryDetails> getAllLaundaryDetails() {
         return laundaryDetailsService.getLaundaryDetails();
     }
 
     @GetMapping("/{requestId}")
-    public LaundaryDetails getLaundaryDetails(@PathVariable(value = "requestId") Integer requestId)
-    {
+    public LaundaryDetails getLaundaryDetails(@PathVariable(value = "requestId") Integer requestId) {
         return laundaryDetailsService.getLaundaryDetailsById(requestId);
     }
 
@@ -34,37 +32,27 @@ public class LaundaryDetailsController {
     }
 
     @DeleteMapping("/{requestId}")
-    public String deleteLaundaryDetails(@PathVariable (value = "requestId") Integer requestId)
-    {
+    public String deleteLaundaryDetails(@PathVariable(value = "requestId") Integer requestId) {
         laundaryDetailsService.delete(requestId);
         return "SUCCESS";
     }
 
-//    @GetMapping("/getByUserId/{userId}")
-//    public List<User> getLaundaryDetailsByUserId(@PathVariable (value = "userId") Integer userId)
-//    {
-//        return laundaryDetailsService.getLaundaryDetailsByUserId(userId);
-//    }
-
-
     @GetMapping("/getUserClothDetails/{userId}/{clothstatus}")
-    public List<LaundaryDetails> getAllUserClothsDetails(@PathVariable (value = "userId") int userId,
-                                                         @PathVariable (value = "clothstatus") int clothStatus) {
+    public List<LaundaryDetails> getAllUserClothsDetails(@PathVariable(value = "userId") int userId,
+                                                         @PathVariable(value = "clothstatus") int clothStatus) {
         System.out.println(userId);
         System.out.println(clothStatus);
         return laundaryDetailsService.getLaundaryDetailsByUserClothStatus(userId, clothStatus);
     }
 
     @GetMapping("/getClothDetailsByClothStatus/{clothstatus}")
-    public List<LaundaryDetails> getAllClothsDetailsByClothStatus(@PathVariable (value = "clothstatus") int clothStatus)
-    {
+    public List<LaundaryDetails> getAllClothsDetailsByClothStatus(@PathVariable(value = "clothstatus") int clothStatus) {
         return laundaryDetailsService.getLaundaryDetailsByClothStatus(clothStatus);
     }
 
     @GetMapping("/finish/{requestId}")
     public LaundaryDetails changeStatusTofinish(
-            @PathVariable (value = "requestId") int requestId)
-    {
+            @PathVariable(value = "requestId") int requestId) {
         System.out.println(requestId);
         return laundaryDetailsService.changeStatusToFinish(requestId);
     }

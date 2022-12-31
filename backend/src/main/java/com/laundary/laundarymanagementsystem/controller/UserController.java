@@ -58,10 +58,6 @@ private UserRepository userRepository;
     }
 
 }
-//    @GetMapping("/getByName/{name}")
-//    public List<User> getUserByName(@PathVariable (value = "fullName") String fullName)
-//    {
-//        return userService.getUserByName(fullName);
-//    }
+
 
 
