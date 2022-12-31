@@ -14,6 +14,11 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+    public static String Login(String gmail, String password) {
+        getUserRepository()
+    }
+
     public List<User> getUsers() {
         return userRepository.findAll();
     }
@@ -35,6 +40,7 @@ public class UserService {
         // TODO Auto-generated method stub
         userRepository.deleteById(id);
     }
+
 
 
 //    public List<LaundaryDetails> getLaundaryDetailsByUserId(Integer userId) {

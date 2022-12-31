@@ -39,7 +39,11 @@ public class UserController {
         userService.delete(userId);
         return "SUCCESS";
     }
-
+    @PostMapping("user/login")
+    public String User(@RequestParam(value = "gmail")String gmail,
+                       @RequestParam(value = "Password")String password){
+        return UserService.Login(gmail,password);
+    }
 //    @GetMapping("/getByName/{name}")
 //    public List<User> getUserByName(@PathVariable (value = "fullName") String fullName)
 //    {
